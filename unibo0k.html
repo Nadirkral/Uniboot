@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Scary Prank</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      background-color: black;
+      animation: flash 0.1s infinite;
+    }
+
+    @keyframes flash {
+      0% { background-color: black; }
+      25% { background-color: red; }
+      50% { background-color: white; }
+      75% { background-color: black; }
+      100% { background-color: red; }
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 100vh;
+    }
+
+    #clickMessage {
+      position: fixed;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      font-size: 18px;
+      background: rgba(0,0,0,0.5);
+      padding: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Scarymaze.jpg" alt="Scary Face" />
+
+  <audio id="scream" loop>
+    <source src="horror-scream-high-quality.mp3" type="audio/mpeg" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <div id="clickMessage">Click anywhere to hear the scream!</div>
+
+  <script>
+    const audio = document.getElementById('scream');
+    const clickMessage = document.getElementById('clickMessage');
+
+    // səsin həcmini artıraq
+    audio.volume = 1.0;
+
+    // Brauzer avtomatik səslə bağlı məhdudiyyət qoyduğundan əvvəl klik tələb edirik
+    function playAudio() {
+      audio.play().then(() => {
+        clickMessage.style.display = 'none';
+      }).catch(() => {
+        // Əgər səslə bağlı problem olsa
+        clickMessage.style.display = 'block';
+      });
+      document.removeEventListener('click', playAudio);
+    }
+
+    // Səs oynamaq üçün istifadəçiyə klik mesajı göstər
+    clickMessage.style.display = 'block';
+
+    document.addEventListener('click', playAudio);
+  </script>
+</body>
+</html>
