@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Scary Prank</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      height: 100%;
+      background-color: black;
+      animation: flash 0.1s infinite;
+    }
+
+    @keyframes flash {
+      0% { background-color: black; }
+      25% { background-color: red; }
+      50% { background-color: white; }
+      75% { background-color: black; }
+      100% { background-color: red; }
+    }
+
+    img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      height: 100vh;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://upload.wikimedia.org/wikipedia/en/4/4d/Scarymaze.jpg" alt="Scary Face">
+
+  <audio id="scream" autoplay loop>
+    <source src="horror-scream-high-quality.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</body>
+</html>
