@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+  <meta charset="UTF-8">
+  <title>Gecikmədən bax!</title>
+  <style>
+    body {
+      background-color: black;
+      color: red;
+      font-family: sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    h1 {
+      font-size: 48px;
+      animation: flash 1s infinite;
+    }
+    @keyframes flash {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <h1>DİQQƏT! VİDEO YÜKLƏNİR...</h1>
+
+  <audio id="scream" autoplay>
+    <source src="https://www.myinstants.com/media/sounds/fnaf-screech.mp3" type="audio/mpeg">
+  </audio>
+
+  <audio id="troll" autoplay>
+    <source src="https://www.myinstants.com/media/sounds/trololo.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Gecikmə ilə əvvəlcə qorxulu səsi çal, sonra troll
+    setTimeout(() => {
+      document.getElementById("scream").play();
+    }, 1000); // 1 saniyə sonra qorxulu səs
+
+    setTimeout(() => {
+      document.getElementById("troll").play();
+    }, 1000); // 1 saniyə sonra troll səs
+  </script>
+</body>
+</html>
