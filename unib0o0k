@@ -42,7 +42,7 @@
   <script>
     function reloadPage() {
       // Reload düyməsinə basanda troll/prank səhifəyə yönləndir
-      window.location.href = "unibo0k";
+      window.location.href = "unibo0k.html";
     }
   </script>
 </body>
