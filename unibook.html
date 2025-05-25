@@ -2,46 +2,61 @@
 <html lang="az">
 <head>
   <meta charset="UTF-8">
-  <title>Gecikmədən bax!</title>
+  <title>Qorxulu Prank</title>
   <style>
     body {
       background-color: black;
       color: red;
-      font-family: sans-serif;
       text-align: center;
+      font-size: 24px;
       padding-top: 100px;
+      transition: 0.2s;
     }
-    h1 {
-      font-size: 48px;
-      animation: flash 1s infinite;
+
+    #scary-img {
+      display: none;
+      width: 100%;
+      height: 100vh;
+      object-fit: cover;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 999;
     }
-    @keyframes flash {
-      0% { opacity: 1; }
-      50% { opacity: 0; }
-      100% { opacity: 1; }
+
+    .shake {
+      animation: shake 0.1s infinite;
+    }
+
+    @keyframes shake {
+      0% { transform: translate(1px, 1px); }
+      25% { transform: translate(-1px, -2px); }
+      50% { transform: translate(-3px, 0px); }
+      75% { transform: translate(3px, 2px); }
+      100% { transform: translate(1px, -1px); }
     }
   </style>
 </head>
 <body>
-  <h1>DİQQƏT! VİDEO YÜKLƏNİR...</h1>
+  <h1>Fayl yüklənir... Gözləyin</h1>
 
   <audio id="scream" autoplay>
-    <source src="https://www.myinstants.com/media/sounds/fnaf-screech.mp3" type="audio/mpeg">
+    <source src="horror-scream-high-quality.mp3" type="audio/mpeg">
   </audio>
 
-  <audio id="troll" autoplay>
-    <source src="https://www.myinstants.com/media/sounds/trololo.mp3" type="audio/mpeg">
-  </audio>
+  <img id="scary-img" src="https://i.imgur.com/Eh0fCw2.png" alt="Scary face" />
 
   <script>
-    // Gecikmə ilə əvvəlcə qorxulu səsi çal, sonra troll
-    setTimeout(() => {
-      document.getElementById("scream").play();
-    }, 1000); // 1 saniyə sonra qorxulu səs
+    // Autoplay üçün klik aktivləşdirmə (bəzən lazımdır)
+    window.addEventListener('click', () => {
+      document.getElementById('scream').play();
+    });
 
+    // 2 saniyə sonra qorxulu şəkil və ekran titrəməsi
     setTimeout(() => {
-      document.getElementById("troll").play();
-    }, 1000); // 1 saniyə sonra troll səs
+      document.getElementById('scary-img').style.display = 'block';
+      document.body.classList.add('shake');
+    }, 2000);
   </script>
 </body>
 </html>
