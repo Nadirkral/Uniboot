@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="az">
 <head>
@@ -42,7 +43,6 @@
       color: white;
       border-radius: 5px;
     }
-    /* Epileptic flicker animation */
     @keyframes flicker {
       0%, 100% {opacity: 1;}
       25% {opacity: 0;}
@@ -59,7 +59,6 @@
       top: 0;
       left: 0;
     }
-    /* Shake effect for body */
     .shake {
       animation: shake 0.1s infinite;
     }
@@ -73,44 +72,33 @@
   </style>
 </head>
 <body>
-
-  <!-- Internet error screen -->
   <div id="error-screen">
     <h1>Internet connection lost</h1>
     <button id="reload-btn">Reload</button>
   </div>
-
-  <!-- Scary epileptic screen -->
   <div id="scary-screen">
     <img src="https://i.imgur.com/Eh0fCw2.png" alt="Scary face 1" style="animation-delay: 0s;">
     <img src="https://i.imgur.com/7uXbfKW.png" alt="Scary face 2" style="animation-delay: 0.05s;">
     <img src="https://i.imgur.com/Eh0fCw2.png" alt="Scary face 3" style="animation-delay: 0.1s;">
   </div>
-
   <audio id="scream" preload="auto">
     <source src="horror-scream-high-quality.mp3" type="audio/mpeg" />
     Sizin brauzer audio dəstəkləmir.
   </audio>
-
 <script>
   const reloadBtn = document.getElementById('reload-btn');
   const errorScreen = document.getElementById('error-screen');
   const scaryScreen = document.getElementById('scary-screen');
   const audio = document.getElementById('scream');
-
   reloadBtn.addEventListener('click', () => {
-    // Göstər error ekranını gizlət, qorxulu ekranı göstər
     errorScreen.style.display = 'none';
     scaryScreen.style.display = 'block';
     document.body.classList.add('shake');
-
-    // Səsi aşağı səviyyədə çalmağa çalış
     audio.volume = 0.1;
     audio.play().catch(() => {
       console.log('Autoplay bloklandı, klik tələb olunmur.');
     });
   });
 </script>
-
 </body>
 </html>
